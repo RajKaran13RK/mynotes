@@ -22,7 +22,6 @@ class _NotesViewState extends State<NotesView> {
   late final FirebaseCloudStorage _notesService;
   @override
   void initState() {
-    // TODO: implement initState
     _notesService = FirebaseCloudStorage();
     // _notesService.open();
     super.initState();

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/auth_provider.dart';
 import 'package:mynotes/services/auth/auth_user.dart';
@@ -67,19 +65,16 @@ class MockAuthProvider implements AuthProvider {
     required String email,
     required String password,
   }) async {
-    // TODO: implement createUser
     if (!isInitialized) throw NotInitializedException();
     await Future.delayed(const Duration(seconds: 1));
     return logIn(email: email, password: password);
   }
 
   @override
-  // TODO: implement currentUser
   AuthUser? get currentUser => _user;
 
   @override
   Future<void> initialize() async {
-    // TODO: implement initialize
     await Future.delayed(const Duration(seconds: 1));
     _isInitialized = true;
   }
@@ -89,7 +84,6 @@ class MockAuthProvider implements AuthProvider {
     required String email,
     required String password,
   }) {
-    // TODO: implement logIn
     if (!isInitialized) throw NotInitializedException();
     if (email == 'rk13@gmail.com') throw UserNotFoundAuthException();
     if (password == 'rk13rk13') throw WrongPasswordAuthException();
@@ -104,7 +98,6 @@ class MockAuthProvider implements AuthProvider {
 
   @override
   Future<void> logOut() async {
-    // TODO: implement logOut
     if (!isInitialized) throw NotInitializedException();
     if (_user == null) throw UserNotFoundAuthException();
     await Future.delayed(const Duration(seconds: 1));
@@ -113,7 +106,6 @@ class MockAuthProvider implements AuthProvider {
 
   @override
   Future<void> sendEmailVerification() async {
-    // TODO: implement sendEmailVerification
     if (!isInitialized) throw NotInitializedException();
     final user = _user;
     if (user == null) throw UserNotFoundAuthException();
